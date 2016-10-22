@@ -8,6 +8,7 @@
   "fco:commands": [
     { 
       "@type": "fco:Command",
+      "@id": "fco:commands",
       "fco:name": "commands",
       "fco:description": "Get a list of available commands",
       "fco:url": "http://localhost:8080/commands",
@@ -23,20 +24,23 @@
   "fco:commands": [
     { 
       "@type": "fco:Command",
+      "@id": "fco:commands",
       "fco:name": "commands",
       "fco:description": "Get a list of available commands",
       "fco:url": "http://localhost:8080/commands"
     },
     { 
       "@type": "fco:Command",
+      "@id": "fco:namespaces",
       "fco:name": "namespaces",
-      "fco:description": "Get a list of available namespaces",
+      "fco:description": "Get a list of predefined namespaces",
       "fco:url": "http://localhost:8080/namespaces"
     },
     { 
       "@type": "fco:Command",
+      "@id": "fco:triples",
       "fco:name": "triples",
-      "fco:description": "Get info on stored triples/quads)",
+      "fco:description": "Get info on stored triples/quads",
       "fco:url": "http://localhost:8080/triples"
     }
   ]

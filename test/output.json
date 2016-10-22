@@ -1,0 +1,45 @@
+{
+
+"/": 
+{
+  "@context": {
+    "fco": "http://functionalconcepts.org/1.0/"
+  },
+  "fco:commands": [
+    { 
+      "@type": "fco:Command",
+      "fco:name": "commands",
+      "fco:description": "Get a list of available commands",
+      "fco:url": "http://localhost:8080/commands",
+    }
+  ]
+}
+
+"/commands": 
+{
+  "@context": {
+    "fco": "http://functionalconcepts.org/1.0/"
+  },
+  "fco:commands": [
+    { 
+      "@type": "fco:Command",
+      "fco:name": "commands",
+      "fco:description": "Get a list of available commands",
+      "fco:url": "http://localhost:8080/commands"
+    },
+    { 
+      "@type": "fco:Command",
+      "fco:name": "namespaces",
+      "fco:description": "Get a list of available namespaces",
+      "fco:url": "http://localhost:8080/namespaces"
+    },
+    { 
+      "@type": "fco:Command",
+      "fco:name": "triples",
+      "fco:description": "Get info on stored triples/quads)",
+      "fco:url": "http://localhost:8080/triples"
+    }
+  ]
+}
+
+}

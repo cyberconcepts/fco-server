@@ -1,6 +1,6 @@
 module Main where
 
-import Lib
+import Fco.Server (startApp)
 
 main :: IO ()
 main = startApp

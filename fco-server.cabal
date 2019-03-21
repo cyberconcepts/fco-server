@@ -1,13 +1,13 @@
 name:                 fco-server
-version:              0.1.0.0
-synopsis:             fco server modules, providing a REST+JSON/JSON-LD API
+version:              0.1.0.2
+synopsis:             fco server modules, providing a REST+JSON API
 description:          Please see README.md
 homepage:             http://github.com/cyberconcepts/fco-server
 license:              MIT
 license-file:         LICENSE
-author:               functionalconcepts.org team
-maintainer:           team@functionalconcepts.org
-copyright:            2016 functionalconcepts.org team
+author:               team@functionalconcepts.org
+maintainer:           helmutm@cy55.de
+copyright:            2019 team@functionalconcepts.org
 category:             Semantic Web
 build-type:           Simple
 -- extra-source-files:
@@ -19,9 +19,9 @@ library
   build-depends:      base >= 4.7 && < 5
                     , aeson >= 0.11
                     , basic-prelude
-                    , servant-server
-                    , wai
-                    , warp
+                    , scotty
+                    --, wai
+                    --, warp
   default-language:   Haskell2010
 
 executable fco-server

@@ -1,22 +1,30 @@
-{-# LANGUAGE DataKinds, TypeOperators #-}
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE NoImplicitPrelude, OverloadedStrings #-}
+{-# LANGUAGE DeriveGeneric #-}
 
-module Fco.Server (
-    startApp
-) where
+module Fco.Server (startApp) where
 
 import BasicPrelude
-import Data.Aeson
+import Data.Aeson (ToJSON)
 import GHC.Generics
-import Network.Wai
-import Network.Wai.Handler.Warp
-import Servant
+import Web.Scotty (get, html, json, param, scotty)
+
+-- |
+-- Copyright   :  (C) 2019 team@functionalconcepts.org
+-- License     :  MIT
+-- Maintainer  :  Helmut Merz <helmutm@cy55.de>
+-- Stability   :  experimental
+--
+-- A REST+JSON server for the functionalconcepts.org project
+--
 
 
-type API = Get '[JSON] [Command]
-  :<|> "commands" :> Get '[JSON] [Command]
+startApp :: IO ()
+startApp = scotty 8080 $ do
+    get "/" $ json commandsRoot
+    get "/commands" $ json commands
 
+
+-- * example: provide a list of available commands
 
 data Command = Command {
   name :: Text,
@@ -27,26 +35,8 @@ data Command = Command {
 instance ToJSON Command
 
 
-startApp :: IO ()
-startApp = run 8080 app
-
-app :: Application
-app = serve api server
-
-api :: Proxy API
-api = Proxy
-
-
-server :: Server API
-server = return commandsRoot
-    :<|> return commands
-
-
 commandsRoot :: [Command]
-commandsRoot =
-  [Command "commands" "Get a list of available commands" 
-           "http://localhost:8080/commands"
-  ]
+commandsRoot = [head commands]
 
 commands :: [Command]
 commands =
